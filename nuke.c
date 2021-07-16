@@ -155,7 +155,8 @@ Nuke GetOptimalCoordinates(const List *list, const float radius) {
                                     sign * (p1->target.y - p2->target.y) * height / distance;
                         y =  0.5 * (p1->target.y + p2->target.y) +
                                     sign * (p2->target.x - p1->target.x) * height / distance;
-                        if (x < 0.0 || y < 0.0) {
+                        if (x < 0.0 || y < 0.0 ||
+                            x > (float)(GRID_SIZE - 1) || y > (float)(GRID_SIZE - 1)) {
                             continue;
                         }
                         current.target = GetCenterCoordinates(  &x, &y, &p1->target,
